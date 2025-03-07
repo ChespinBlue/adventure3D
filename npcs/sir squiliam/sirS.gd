@@ -23,6 +23,7 @@ func _input(event):
 			if part == 0:
 				speak.emit(words1, Sname)
 				animation = "talk"
+				play("talk")
 				part +=1
 
 ##### knows if in area
