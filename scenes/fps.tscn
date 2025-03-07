@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://6115iosldobl"]
+
+[ext_resource type="FontFile" uid="uid://dkmsgh35he7cg" path="res://fonts/PixelOfficeSerrif1.ttf" id="1_26kcn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gi76t"]
+font = ExtResource("1_26kcn")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_2w74w"]
+script/source = "extends Label
+
+func _process(_delta: float) -> void:
+	set_text(\"FPS %d\" % Engine.get_frames_per_second())
+"
+
+[node name="fps" type="CanvasLayer"]
+
+[node name="fpsnumber" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.0359375
+anchor_right = 0.0567708
+anchor_bottom = 0.0319444
+text = "e"
+label_settings = SubResource("LabelSettings_gi76t")
+script = SubResource("GDScript_2w74w")
+metadata/_edit_use_anchors_ = true

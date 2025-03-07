@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://6115iosldobl"]
+
+[sub_resource type="GDScript" id="GDScript_2w74w"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	set_text(\"FPS %d\" % Engine.get_frames_per_second())()))
+"
+
+[node name="fps" type="CanvasLayer"]
+
+[node name="fpsnumber" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "e"
+script = SubResource("GDScript_2w74w")

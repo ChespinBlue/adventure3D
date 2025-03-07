@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6vrfytyqp5t7"]
+
+[ext_resource type="Texture2D" uid="uid://by28754m7kg8j" path="res://player/crosshair/hair1.png" id="1_p3ca3"]
+
+[node name="crosshair" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_p3ca3")

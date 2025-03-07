@@ -1,0 +1,42 @@
+# Blender 4.3.2 MTL File: 'land2.blend'
+# www.blender.org
+
+newmtl None
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl grass
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Joshua Scales/games/adventure3d/terrain/textures/Untitled_Artwork (2).png
+
+newmtl path
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.167055 0.108335 0.047254
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl sign
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/Joshua Scales/games/adventure3D/terrain/textures/thewell.png

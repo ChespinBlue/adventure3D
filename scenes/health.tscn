@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://f27tg21m0eo"]
+
+[ext_resource type="Script" path="res://scenes/health.gd" id="1_750c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebuaj"]
+bg_color = Color(0.45098, 0.45098, 0.45098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wd85l"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_53lk0"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ebuaj")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wd85l")
+
+[node name="health" type="CanvasLayer"]
+script = ExtResource("1_750c6")
+
+[node name="player1Hb" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.00642857
+anchor_top = 0.00571429
+anchor_right = 0.0228571
+anchor_bottom = 0.992381
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_53lk0")
+step = 1.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bci0et88hor7o"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4ucr7"]
+[ext_resource type="PackedScene" uid="uid://6115iosldobl" path="res://fps.tscn" id="2_efchm"]
+
+[node name="main" type="Node3D"]
+
+[node name="player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_4ucr7")
+
+[node name="neck" type="Node3D" parent="player"]
+
+[node name="Camera3D" type="Camera3D" parent="player/neck"]
+
+[node name="fps" parent="." instance=ExtResource("2_efchm")]

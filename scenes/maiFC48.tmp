@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://bci0et88hor7o"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_of3x2"]
+[ext_resource type="PackedScene" uid="uid://6115iosldobl" path="res://scenes/fps.tscn" id="2_fne8p"]
+[ext_resource type="PackedScene" uid="uid://f27tg21m0eo" path="res://scenes/health.tscn" id="5_1867n"]
+[ext_resource type="Script" path="res://player/player.gd" id="5_ehaut"]
+[ext_resource type="Shader" path="res://shaders/grain.gdshader" id="8_6i6e0"]
+[ext_resource type="Script" path="res://fade.gd" id="9_paf55"]
+[ext_resource type="Shader" path="res://shaders/colorq_grain.gdshader" id="10_rbkha"]
+
+[sub_resource type="Environment" id="Environment_pd302"]
+background_mode = 1
+background_color = Color(0.690196, 0.690196, 0.690196, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.8
+ssao_radius = 0.4
+ssao_intensity = 1.0
+ssao_power = 10.0907
+glow_enabled = true
+glow_blend_mode = 0
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.001
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh8fm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg5sf"]
+shader = ExtResource("10_rbkha")
+shader_parameter/grain_size = 9.733
+shader_parameter/animate = true
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(0.8, 0.764706, 0.670588, 1)
+shader_parameter/color3 = Color(0.658824, 0.560784, 0.482353, 1)
+shader_parameter/color4 = Color(0.376471, 0.376471, 0.580392, 1)
+shader_parameter/color5 = Color(0.2, 0.2, 0.482353, 1)
+shader_parameter/color6 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2kg5r"]
+shader = ExtResource("8_6i6e0")
+shader_parameter/grain_size = 1.0
+shader_parameter/animate = false
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8e15"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b0vvu"]
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_of3x2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.339542, 0.804479, 0.487364, 2.50012e-09, -0.518147, 0.855292, 0.940591, 0.290408, 0.175933, 0, 328.169, 0)
+light_color = Color(1, 1, 0.87451, 1)
+shadow_enabled = true
+shadow_reverse_cull_face = true
+shadow_blur = 0.0
+
+[node name="sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pd302")
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="fps" parent="UI" instance=ExtResource("2_fne8p")]
+
+[node name="health" parent="UI" instance=ExtResource("5_1867n")]
+
+[node name="fade" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 3892.0
+offset_bottom = 2517.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qh8fm")
+script = ExtResource("9_paf55")
+metadata/_edit_lock_ = true
+
+[node name="fadetimer" type="Timer" parent="fade"]
+
+[node name="color" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_jg5sf")
+offset_right = 5485.0
+offset_bottom = 3459.0
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="color"]
+handle_input_locally = false
+size = Vector2i(5485, 3459)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="color/SubViewport"]
+
+[node name="grain" type="SubViewportContainer" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_2kg5r")
+offset_right = 5485.0
+offset_bottom = 3459.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="grain"]
+handle_input_locally = false
+size = Vector2i(5485, 3459)
+render_target_update_mode = 0
+
+[node name="Node3D" type="Node3D" parent="grain/SubViewport"]
+
+[node name="player" type="CharacterBody3D" parent="."]
+script = ExtResource("5_ehaut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+shape = SubResource("CapsuleShape3D_x8e15")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
+mesh = SubResource("CapsuleMesh_b0vvu")
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+
+[connection signal="timeout" from="fade/fadetimer" to="fade" method="_on_fadetimer_timeout"]
