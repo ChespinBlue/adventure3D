@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bnnsw4sno0qx3" path="res://terrain/textures/images/grass1.png" id="1_t6m46"]
 
 [resource]
-transparency = 3
-alpha_hash_scale = 1.0
+transparency = 2
+alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0

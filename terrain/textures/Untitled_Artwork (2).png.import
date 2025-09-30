@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0flkotdoy0on"
-path.s3tc="res://.godot/imported/Untitled_Artwork (2).png-e696d437b752f8468bbffb2e03a6f0df.s3tc.ctex"
+path="res://.godot/imported/Untitled_Artwork (2).png-e696d437b752f8468bbffb2e03a6f0df.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://terrain/textures/Untitled_Artwork (2).png"
-dest_files=["res://.godot/imported/Untitled_Artwork (2).png-e696d437b752f8468bbffb2e03a6f0df.s3tc.ctex"]
+dest_files=["res://.godot/imported/Untitled_Artwork (2).png-e696d437b752f8468bbffb2e03a6f0df.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

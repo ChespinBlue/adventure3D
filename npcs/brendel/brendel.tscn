@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://begw3k1uef84b"]
+
+[ext_resource type="Script" uid="uid://ckunvdokdpifu" path="res://npcs/brendel/brendel.gd" id="1_g7q5y"]
+[ext_resource type="SpriteFrames" uid="uid://dc5ry1rin6a8w" path="res://npcs/brendel/brendelSpriteFrames.tres" id="1_tyogk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rgydi"]
+height = 4.0
+radius = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_usq3o"]
+height = 3.0
+
+[node name="brendel" type="AnimatedSprite3D"]
+pixel_size = 0.02
+billboard = 1
+texture_filter = 0
+sprite_frames = ExtResource("1_tyogk")
+animation = &"decompose"
+script = ExtResource("1_g7q5y")
+
+[node name="brendel_area" type="Area3D" parent="."]
+
+[node name="brendel_area_collision" type="CollisionShape3D" parent="brendel_area"]
+shape = SubResource("CylinderShape3D_rgydi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_usq3o")
+
+[connection signal="body_entered" from="brendel_area" to="." method="_on_brendel_area_body_entered"]
+[connection signal="body_exited" from="brendel_area" to="." method="_on_brendel_area_body_exited"]

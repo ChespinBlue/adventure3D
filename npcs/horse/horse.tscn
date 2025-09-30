@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8whq5nn0rev"]
+
+[ext_resource type="Texture2D" uid="uid://752i10offa4i" path="res://npcs/horse/horse.png" id="1_ol4pa"]
+[ext_resource type="Script" uid="uid://dcnibjjaadbpq" path="res://npcs/horse/horse.gd" id="2_7j7hs"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ysif0"]
+height = 3.0
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0126a"]
+height = 4.0
+radius = 1.5
+
+[node name="horse" type="Sprite3D"]
+pixel_size = 0.035
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_ol4pa")
+script = ExtResource("2_7j7hs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_ysif0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="sirS_area_collision" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_0126a")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

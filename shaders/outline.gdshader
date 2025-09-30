@@ -10,7 +10,7 @@ void fragment() {
 	vec4 pixelatedtext = texture(SCREEN_TEXTURE, SCREEN_UV);
 	vec2 pixel_size = 1.0 / VIEWPORT_SIZE;
 	ALBEDO = pixelatedtext.rgb;
-	
+
 	//don't know whats going on here ↓
 	for(int y = -1*int(outline_width); y <= 1*int(outline_width); y++)
 	for(int x = -1*int(outline_width); x <= 1*int(outline_width); x++){
@@ -22,7 +22,7 @@ void fragment() {
 		SCREEN_UV.y + float(y) * pixel_size.y > 0.0){
 			ALBEDO = outline_color.rgb;
 			ALPHA = 1.0;
-			
+
 		}
 	}
 }

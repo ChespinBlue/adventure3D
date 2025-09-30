@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c0btotq7n8io1"]
+
+[ext_resource type="Texture2D" uid="uid://c0flkotdoy0on" path="res://terrain/textures/Untitled_Artwork (2).png" id="1_hrjfy"]
+
+[resource]
+albedo_color = Color(0.758192, 0.758192, 0.758192, 1)
+albedo_texture = ExtResource("1_hrjfy")
+texture_filter = 0

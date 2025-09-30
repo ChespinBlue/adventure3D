@@ -14,7 +14,6 @@ uniform vec4 color3 : source_color;
 uniform vec4 color4 : source_color;
 uniform vec4 color5 : source_color;
 uniform vec4 color6 : source_color;
-uniform vec4 color7 : source_color;
 
 void fragment() {
 
@@ -31,7 +30,7 @@ void fragment() {
 		 grain_amount = 0.0;
 	}
 	//remove grain
-	//grain_amount = 0.0;
+	grain_amount = 0.0;
 	//if(color_amount < 0.5){
 		 //float grain_amount = 1.0;
 	//}

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://mtl3mr30c73d"]
+[gd_scene load_steps=6 format=3 uid="uid://mtl3mr30c73d"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_ohj3l"]
+[ext_resource type="Script" uid="uid://dmxx1whwwc4ht" path="res://player/player.gd" id="1_ohj3l"]
+[ext_resource type="Texture2D" uid="uid://bs2sbwfq2in75" path="res://npcs/horse/horse head.png" id="2_lb7bu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y2gi2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tavuy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u6vga"]
+height = 3.0
+radius = 1.2
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_ohj3l")
@@ -23,3 +28,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632329, 0)
 [node name="Camera3D" type="Camera3D" parent="neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249581, 0)
 fov = 70.0
+
+[node name="horsehead" type="Sprite3D" parent="neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0191693, -1.00829, -0.993997)
+visible = false
+pixel_size = 0.015
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_lb7bu")
+
+[node name="horse_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("CylinderShape3D_u6vga")
+disabled = true

@@ -14,13 +14,13 @@ signal dialboxstatus(dialboxopen)
 func _process(_delta):
 	if visible == true:
 		dialboxopen = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		mousemode = "free"
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#mousemode = "free"
 	else:
 		dialboxopen = false
-		if mousemode == "free":
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			mousemode = "capt"
+		#if mousemode == "free":
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			#mousemode = "capt"
 	dialboxstatus.emit(dialboxopen)
 
 ### close button
@@ -29,6 +29,9 @@ func _on_close_pressed():
 
 ########################################### text
 func showtext(x, y):
+	if x == "close":
+		visible = false
+		return
 	charCount = 0
 	visible = true
 	body.text = x
